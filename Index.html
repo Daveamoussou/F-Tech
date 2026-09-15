@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F TECH DESIGN — Boîtiers PC & Clés USB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark">F</span>
+        <div class="brand-text">
+          <span class="brand-name">TECH DESIGN</span>
+          <span class="brand-tagline">Qualité avant tout</span>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#produits">Produits</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#livraison">Livraison</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Nouveau stock disponible</p>
+        <h1>Bonjour à tous !</h1>
+        <p class="hero-sub">
+          Boîtiers PC et clés USB fraîchement arrivés. Du matériel fiable,
+          des prix clairs, et une livraison jusqu'à chez vous.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#produits">Voir les produits</a>
+          <a class="btn btn-ghost" href="#contact">Commander</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="fan-ring ring-1"></div>
+        <div class="fan-ring ring-2"></div>
+        <div class="fan-ring ring-3"></div>
+        <div class="case-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUITS ===== -->
+  <section class="produits" id="produits">
+    <div class="wrap">
+      <h2>Nos produits</h2>
+      <p class="section-sub">Deux essentiels toujours en stock.</p>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-glow"></div>
+          <h3>Boîtiers PC</h3>
+          <p>Boîtiers avec ventilateurs RGB, panneau vitré et bon flux d'air. Idéal pour un setup gaming ou bureautique qui en jette.</p>
+          <ul class="tag-list">
+            <li>Ventilation RGB</li>
+            <li>Panneau vitré</li>
+            <li>Montage facile</li>
+          </ul>
+          <div class="price-tag">5000 <span>FCFA</span></div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-glow product-glow-alt"></div>
+          <h3>Clés USB</h3>
+          <p>Plusieurs marques et plusieurs capacités disponibles selon vos besoins de stockage ou de transfert.</p>
+          <ul class="tag-list">
+            <li>8 Go</li>
+            <li>16 Go</li>
+            <li>32 Go</li>
+            <li>64 Go</li>
+            <li>128 Go</li>
+          </ul>
+          <p class="capacity-note">Capacités différentes disponibles — demandez celle qu'il vous faut.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TARIFS ===== -->
+  <section class="tarifs" id="tarifs">
+    <div class="wrap tarifs-inner">
+      <div>
+        <h2>Un prix clair</h2>
+        <p class="section-sub">Pas de mauvaise surprise. Le prix affiché est le prix payé.</p>
+      </div>
+      <div class="price-highlight">
+        <span class="price-number">5000</span>
+        <span class="price-currency">FCFA</span>
+        <span class="price-label">le boîtier PC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVRAISON ===== -->
+  <section class="livraison" id="livraison">
+    <div class="wrap livraison-inner">
+      <svg class="pin-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 4C15.7 4 9 10.7 9 19c0 11.5 15 25 15 25s15-13.5 15-25c0-8.3-6.7-15-15-15Z" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="24" cy="19" r="6" stroke="currentColor" stroke-width="2.5"/>
+      </svg>
+      <div>
+        <h2>Où êtes-vous ?</h2>
+        <p>Je peux vous livrer directement chez vous, rapidement et en toute confiance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ENGAGEMENTS ===== -->
+  <section class="engagements">
+    <div class="wrap engagement-grid">
+      <div class="engagement">
+        <span class="engagement-icon">✓</span>
+        <span>Produits de qualité</span>
+      </div>
+      <div class="engagement">
+        <span class="engagement-icon">✓</span>
+        <span>Service de confiance</span>
+      </div>
+      <div class="engagement">
+        <span class="engagement-icon">✓</span>
+        <span>Livraison rapide</span>
+      </div>
+      <div class="engagement">
+        <span class="engagement-icon">✓</span>
+        <span>Votre satisfaction avant tout</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / COMMANDE ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-inner">
+      <h2>Passer commande</h2>
+      <p class="section-sub">Dites-moi ce qu'il vous faut, je réponds vite.</p>
+
+      <form class="order-form" id="orderForm">
+        <div class="form-row">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+        </div>
+        <div class="form-row">
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" name="tel" required placeholder="Votre numéro">
+        </div>
+        <div class="form-row">
+          <label for="produit">Produit souhaité</label>
+          <select id="produit" name="produit">
+            <option value="Boîtier PC">Boîtier PC — 5000 FCFA</option>
+            <option value="Clé USB 8Go">Clé USB 8 Go</option>
+            <option value="Clé USB 16Go">Clé USB 16 Go</option>
+            <option value="Clé USB 32Go">Clé USB 32 Go</option>
+            <option value="Clé USB 64Go">Clé USB 64 Go</option>
+            <option value="Clé USB 128Go">Clé USB 128 Go</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="adresse">Adresse de livraison</label>
+          <input type="text" id="adresse" name="adresse" placeholder="Quartier, ville">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Envoyer la commande sur WhatsApp</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="brand">
+        <span class="brand-mark">F</span>
+        <span class="brand-name">TECH DESIGN</span>
+      </div>
+      <p>&copy; <span id="year"></span> F Tech Design. Qualité avant tout.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+        </html>
+        
