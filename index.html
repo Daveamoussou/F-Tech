@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F Tech Design — Qualité avant tout</title>
+<style>
+  :root{
+    --bg: #0b0f1a;
+    --bg-card: #131a2b;
+    --bg-card-2: #0f1524;
+    --border: #22304a;
+    --accent: #29b6f6;
+    --accent-dark: #0288d1;
+    --text: #e8edf5;
+    --text-dim: #8b98af;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    min-height:100vh;
+  }
+  a{color:inherit;}
+  .wrap{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* NAV */
+  nav.topbar{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:20px;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    background:rgba(11,15,26,0.92);
+    backdrop-filter:blur(6px);
+    z-index:10;
+  }
+  .logo{
+    width:48px;height:48px;
+    border:2px solid var(--accent);
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:22px;color:var(--accent);
+    flex-shrink:0;
+  }
+  nav h1{font-size:18px;letter-spacing:.5px;}
+  nav p{color:var(--text-dim);font-size:11px;margin-top:1px;}
+
+  /* HERO */
+  header.hero{
+    padding:36px 20px 28px;
+    text-align:left;
+  }
+  header.hero .tag{
+    display:inline-block;
+    background:rgba(41,182,246,0.12);
+    color:var(--accent);
+    font-size:12px;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+    letter-spacing:.5px;
+  }
+  header.hero h2{
+    font-size:30px;
+    line-height:1.25;
+    margin-bottom:12px;
+  }
+  header.hero h2 span{color:var(--accent);}
+  header.hero p{
+    color:var(--text-dim);
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:24px;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#06121f;
+    font-weight:700;
+    padding:14px 26px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:15px;
+  }
+
+  /* SERVICES */
+  section.services{padding:8px 20px 8px;}
+  section.services h3{
+    font-size:20px;
+    margin-bottom:16px;
+  }
+  .service-card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .service-icon{
+    width:52px;height:52px;
+    border-radius:12px;
+    background:rgba(41,182,246,0.12);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;
+    flex-shrink:0;
+  }
+  .service-card .info{flex:1;}
+  .service-card .info h4{font-size:16px;margin-bottom:4px;}
+  .service-card .info p{color:var(--text-dim);font-size:13px;}
+  .service-card .price{
+    color:var(--accent);
+    font-weight:800;
+    font-size:15px;
+    white-space:nowrap;
+  }
+
+  /* DELIVERY BANNER */
+  .delivery{
+    background:linear-gradient(135deg, rgba(41,182,246,0.15), rgba(41,182,246,0.03));
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 20px;
+    margin:20px 20px 8px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .delivery .icon{font-size:28px;}
+  .delivery h4{font-size:15px;margin-bottom:2px;}
+  .delivery p{color:var(--accent);font-weight:700;font-size:14px;}
+
+  /* FEATURES */
+  section.features{
+    padding:28px 20px 8px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .feature{
+    background:var(--bg-card-2);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px;
+    text-align:center;
+  }
+  .feature .icon{font-size:22px;margin-bottom:8px;}
+  .feature p{font-size:12.5px;color:var(--text-dim);}
+
+  /* FORM */
+  section.order{
+    padding:36px 20px 20px;
+  }
+  section.order h3{
+    font-size:20px;
+    margin-bottom:6px;
+  }
+  section.order > p{
+    color:var(--text-dim);
+    font-size:14px;
+    margin-bottom:22px;
+  }
+  .field{margin-bottom:20px;}
+  label{
+    display:block;
+    font-size:14px;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  input, select, textarea{
+    width:100%;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+    color:var(--text);
+    font-size:16px;
+    outline:none;
+    transition:border-color .15s;
+    font-family:inherit;
+  }
+  input::placeholder, textarea::placeholder{color:#5c6a82;}
+  input:focus, select:focus, textarea:focus{border-color:var(--accent);}
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238b98af' viewBox='0 0 16 16'><path d='M8 11L3 6h10z'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 16px center;
+  }
+  optgroup{color:var(--accent);font-weight:600;}
+  option{color:#0b0f1a;}
+  textarea{resize:vertical;min-height:70px;}
+  .error{color:#ff6b6b;font-size:13px;margin-top:6px;display:none;}
+  .field.invalid input, .field.invalid select{border-color:#ff6b6b;}
+  .field.invalid .error{display:block;}
+  button.submit{
+    width:100%;
+    background:var(--accent);
+    color:#06121f;
+    border:none;
+    border-radius:999px;
+    padding:16px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:8px;
+    transition:background .15s, transform .1s;
+  }
+  button.submit:hover{background:var(--accent-dark);}
+  button.submit:active{transform:scale(0.98);}
+  .status{text-align:center;font-size:13px;color:var(--text-dim);margin-top:14px;min-height:18px;}
+
+  footer{
+    color:var(--text-dim);
+    font-size:12px;
+    text-align:center;
+    padding:30px 20px 40px;
+    border-top:1px solid var(--border);
+    margin-top:20px;
+  }
+  footer .fname{color:var(--accent);font-weight:700;}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="logo">F</div>
+  <div>
+    <h1>TECH DESIGN</h1>
+    <p>Qualité avant tout</p>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="tag">Nouveau stock disponible</span>
+  <h2>Boîtiers PC & clés USB <span>en stock</span>, livrés chez vous.</h2>
+  <p>Dites-moi ce qu'il vous faut, je réponds vite. Commandez en quelques secondes, le message part directement sur WhatsApp.</p>
+  <a href="#commande" class="cta-btn">Passer une commande</a>
+</header>
+
+<section class="services wrap">
+  <h3>Nos produits</h3>
+
+  <div class="service-card">
+    <div class="service-icon">🖥️</div>
+    <div class="info">
+      <h4>Boîtier PC</h4>
+      <p>Neuf, disponible immédiatement</p>
+    </div>
+    <div class="price">5000 FCFA</div>
+  </div>
+
+  <div class="service-card">
+    <div class="service-icon">💾</div>
+    <div class="info">
+      <h4>Clés USB</h4>
+      <p>8GB · 16GB · 32GB · 64GB · 128GB</p>
+    </div>
+    <div class="price">Selon capacité</div>
+  </div>
+</section>
+
+<div class="delivery wrap" style="margin-left:0;margin-right:0;">
+  <div class="icon">🛵</div>
+  <div>
+    <h4>Où êtes-vous ?</h4>
+    <p>Je peux livrer chez vous</p>
+  </div>
+</div>
+
+<section class="features wrap">
+  <div class="feature">
+    <div class="icon">✅</div>
+    <p>Produits de qualité</p>
+  </div>
+  <div class="feature">
+    <div class="icon">🤝</div>
+    <p>Service de confiance</p>
+  </div>
+  <div class="feature">
+    <div class="icon">⏱️</div>
+    <p>Livraison rapide</p>
+  </div>
+  <div class="feature">
+    <div class="icon">👍</div>
+    <p>Votre satisfaction, ma priorité</p>
+  </div>
+</section>
+
+<section class="order wrap" id="commande">
+  <h3>Passer commande</h3>
+  <p>Remplissez le formulaire, le message part directement sur WhatsApp.</p>
+
+  <form id="orderForm" novalidate>
+
+    <div class="field" id="field-nom">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" placeholder="Votre nom" autocomplete="name">
+      <div class="error">Merci d'indiquer votre nom.</div>
+    </div>
+
+    <div class="field" id="field-tel">
+      <label for="tel">Téléphone</label>
+      <input type="tel" id="tel" placeholder="Votre numéro" autocomplete="tel">
+      <div class="error">Merci d'indiquer votre numéro.</div>
+    </div>
+
+    <div class="field" id="field-produit">
+      <label for="produit">Produit souhaité</label>
+      <select id="produit">
+        <optgroup label="Boîtiers PC">
+          <option value="Boîtier PC — 5000 FCFA">Boîtier PC — 5000 FCFA</option>
+        </optgroup>
+        <optgroup label="Clés USB">
+          <option value="Clé USB 8GB">Clé USB 8GB</option>
+          <option value="Clé USB 16GB">Clé USB 16GB</option>
+          <option value="Clé USB 32GB">Clé USB 32GB</option>
+          <option value="Clé USB 64GB">Clé USB 64GB</option>
+          <option value="Clé USB 128GB">Clé USB 128GB</option>
+        </optgroup>
+        <optgroup label="Autre">
+          <option value="Autre demande (préciser dans le message)">Autre demande (préciser dans le message)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="field" id="field-adresse">
+      <label for="adresse">Adresse de livraison</label>
+      <input type="text" id="adresse" placeholder="Quartier, ville" autocomplete="street-address">
+    </div>
+
+    <div class="field" id="field-message">
+      <label for="message">Message (optionnel)</label>
+      <textarea id="message" placeholder="Précisions sur votre commande..."></textarea>
+    </div>
+
+    <button type="submit" class="submit">Envoyer la commande sur WhatsApp</button>
+    <p class="status" id="status"></p>
+  </form>
+</section>
+
+<footer>
+  <span class="fname">F TECH DESIGN</span><br>
+  Qualité avant tout
+</footer>
+
+<script>
+  // Numéro WhatsApp pro, format international sans + ni espaces
+  const WHATSAPP_NUMBER = "22951224992";
+
+  const form = document.getElementById('orderForm');
+  const statusEl = document.getElementById('status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.textContent = '';
+
+    const nom = document.getElementById('nom').value.trim();
+    const tel = document.getElementById('tel').value.trim();
+    const produit = document.getElementById('produit').value;
+    const adresse = document.getElementById('adresse').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    let valid = true;
+    const nomField = document.getElementById('field-nom');
+    const telField = document.getElementById('field-tel');
+
+    if(!nom){ nomField.classList.add('invalid'); valid = false; }
+    else { nomField.classList.remove('invalid'); }
+
+    if(!tel){ telField.classList.add('invalid'); valid = false; }
+    else { telField.classList.remove('invalid'); }
+
+    if(!valid){
+      statusEl.textContent = "Merci de compléter les champs obligatoires.";
+      return;
+    }
+
+    let texte = "Bonjour, je souhaite passer une commande :\n\n";
+    texte += "Nom : " + nom + "\n";
+    texte += "Téléphone : " + tel + "\n";
+    texte += "Produit souhaité : " + produit + "\n";
+    if(adresse) texte += "Adresse de livraison : " + adresse + "\n";
+    if(message) texte += "Message : " + message + "\n";
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(texte);
+
+    statusEl.textContent = "Redirection vers WhatsApp...";
+    window.location.href = url;
+  });
+</script>
+
+</body>
+</html>
