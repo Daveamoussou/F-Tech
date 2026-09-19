@@ -1,197 +1,260 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F TECH DESIGN — Boîtiers PC & Clés USB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F Tech Design — Commande</title>
+<style>
+  :root{
+    --bg: #0b0f1a;
+    --bg-card: #131a2b;
+    --border: #22304a;
+    --accent: #29b6f6;
+    --accent-dark: #0288d1;
+    --text: #e8edf5;
+    --text-dim: #8b98af;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-bottom:60px;
+  }
+  header{
+    width:100%;
+    max-width:640px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:28px 20px 20px;
+  }
+  .logo{
+    width:56px;height:56px;
+    border:2px solid var(--accent);
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:26px;color:var(--accent);
+    flex-shrink:0;
+  }
+  header h1{
+    font-size:22px;
+    letter-spacing:1px;
+  }
+  header p{
+    color:var(--text-dim);
+    font-size:13px;
+    margin-top:2px;
+  }
+  main{
+    width:100%;
+    max-width:640px;
+    padding:0 20px;
+  }
+  .intro{
+    color:var(--text-dim);
+    font-size:17px;
+    line-height:1.5;
+    margin-bottom:28px;
+  }
+  .field{
+    margin-bottom:22px;
+  }
+  label{
+    display:block;
+    font-size:14px;
+    color:var(--text-dim);
+    margin-bottom:8px;
+  }
+  input, select, textarea{
+    width:100%;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+    color:var(--text);
+    font-size:16px;
+    outline:none;
+    transition:border-color .15s;
+    font-family:inherit;
+  }
+  input::placeholder, textarea::placeholder{color:#5c6a82;}
+  input:focus, select:focus, textarea:focus{
+    border-color:var(--accent);
+  }
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238b98af' viewBox='0 0 16 16'><path d='M8 11L3 6h10z'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 16px center;
+  }
+  optgroup{color:var(--accent);font-weight:600;}
+  option{color:#0b0f1a;}
+  textarea{resize:vertical;min-height:70px;}
+  .error{
+    color:#ff6b6b;
+    font-size:13px;
+    margin-top:6px;
+    display:none;
+  }
+  .field.invalid input, .field.invalid select{
+    border-color:#ff6b6b;
+  }
+  .field.invalid .error{display:block;}
+  button{
+    width:100%;
+    background:var(--accent);
+    color:#06121f;
+    border:none;
+    border-radius:999px;
+    padding:16px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:12px;
+    transition:background .15s, transform .1s;
+  }
+  button:hover{background:var(--accent-dark);}
+  button:active{transform:scale(0.98);}
+  .status{
+    text-align:center;
+    font-size:13px;
+    color:var(--text-dim);
+    margin-top:14px;
+    min-height:18px;
+  }
+  footer{
+    color:var(--text-dim);
+    font-size:12px;
+    margin-top:40px;
+    text-align:center;
+  }
+</style>
 </head>
 <body>
 
-  <!-- ===== EN-TÊTE ===== -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand">
-        <span class="brand-mark">F</span>
-        <div class="brand-text">
-          <span class="brand-name">TECH DESIGN</span>
-          <span class="brand-tagline">Qualité avant tout</span>
-        </div>
-      </div>
-      <nav class="nav" id="nav">
-        <a href="#produits">Produits</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#livraison">Livraison</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<header>
+  <div class="logo">F</div>
+  <div>
+    <h1>TECH DESIGN</h1>
+    <p>Qualité avant tout</p>
+  </div>
+</header>
+
+<main>
+  <p class="intro">Dites-moi ce qu'il vous faut, je réponds vite.</p>
+
+  <form id="orderForm" novalidate>
+
+    <div class="field" id="field-nom">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" placeholder="Votre nom" autocomplete="name">
+      <div class="error">Merci d'indiquer votre nom.</div>
     </div>
-  </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div class="hero-text">
-        <p class="hero-eyebrow">Nouveau stock disponible</p>
-        <h1>Bonjour à tous !</h1>
-        <p class="hero-sub">
-          Boîtiers PC et clés USB fraîchement arrivés. Du matériel fiable,
-          des prix clairs, et une livraison jusqu'à chez vous.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#produits">Voir les produits</a>
-          <a class="btn btn-ghost" href="#contact">Commander</a>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="fan-ring ring-1"></div>
-        <div class="fan-ring ring-2"></div>
-        <div class="fan-ring ring-3"></div>
-        <div class="case-box"></div>
-      </div>
+    <div class="field" id="field-tel">
+      <label for="tel">Téléphone</label>
+      <input type="tel" id="tel" placeholder="Votre numéro" autocomplete="tel">
+      <div class="error">Merci d'indiquer votre numéro.</div>
     </div>
-  </section>
 
-  <!-- ===== PRODUITS ===== -->
-  <section class="produits" id="produits">
-    <div class="wrap">
-      <h2>Nos produits</h2>
-      <p class="section-sub">Deux essentiels toujours en stock.</p>
-
-      <div class="product-grid">
-
-        <article class="product-card">
-          <div class="product-glow"></div>
-          <h3>Boîtiers PC</h3>
-          <p>Boîtiers avec ventilateurs RGB, panneau vitré et bon flux d'air. Idéal pour un setup gaming ou bureautique qui en jette.</p>
-          <ul class="tag-list">
-            <li>Ventilation RGB</li>
-            <li>Panneau vitré</li>
-            <li>Montage facile</li>
-          </ul>
-          <div class="price-tag">5000 <span>FCFA</span></div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-glow product-glow-alt"></div>
-          <h3>Clés USB</h3>
-          <p>Plusieurs marques et plusieurs capacités disponibles selon vos besoins de stockage ou de transfert.</p>
-          <ul class="tag-list">
-            <li>8 Go</li>
-            <li>16 Go</li>
-            <li>32 Go</li>
-            <li>64 Go</li>
-            <li>128 Go</li>
-          </ul>
-          <p class="capacity-note">Capacités différentes disponibles — demandez celle qu'il vous faut.</p>
-        </article>
-
-      </div>
+    <div class="field" id="field-produit">
+      <label for="produit">Produit souhaité</label>
+      <select id="produit">
+        <optgroup label="Boîtiers PC">
+          <option value="Boîtier PC — 5000 FCFA">Boîtier PC — 5000 FCFA</option>
+        </optgroup>
+        <optgroup label="Clés USB">
+          <option value="Clé USB 8GB">Clé USB 8GB</option>
+          <option value="Clé USB 16GB">Clé USB 16GB</option>
+          <option value="Clé USB 32GB">Clé USB 32GB</option>
+          <option value="Clé USB 64GB">Clé USB 64GB</option>
+          <option value="Clé USB 128GB">Clé USB 128GB</option>
+        </optgroup>
+        <optgroup label="Autre">
+          <option value="Autre demande (préciser dans le message)">Autre demande (préciser dans le message)</option>
+        </optgroup>
+      </select>
     </div>
-  </section>
 
-  <!-- ===== TARIFS ===== -->
-  <section class="tarifs" id="tarifs">
-    <div class="wrap tarifs-inner">
-      <div>
-        <h2>Un prix clair</h2>
-        <p class="section-sub">Pas de mauvaise surprise. Le prix affiché est le prix payé.</p>
-      </div>
-      <div class="price-highlight">
-        <span class="price-number">5000</span>
-        <span class="price-currency">FCFA</span>
-        <span class="price-label">le boîtier PC</span>
-      </div>
+    <div class="field" id="field-adresse">
+      <label for="adresse">Adresse de livraison</label>
+      <input type="text" id="adresse" placeholder="Quartier, ville" autocomplete="street-address">
     </div>
-  </section>
 
-  <!-- ===== LIVRAISON ===== -->
-  <section class="livraison" id="livraison">
-    <div class="wrap livraison-inner">
-      <svg class="pin-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M24 4C15.7 4 9 10.7 9 19c0 11.5 15 25 15 25s15-13.5 15-25c0-8.3-6.7-15-15-15Z" stroke="currentColor" stroke-width="2.5"/>
-        <circle cx="24" cy="19" r="6" stroke="currentColor" stroke-width="2.5"/>
-      </svg>
-      <div>
-        <h2>Où êtes-vous ?</h2>
-        <p>Je peux vous livrer directement chez vous, rapidement et en toute confiance.</p>
-      </div>
+    <div class="field" id="field-message">
+      <label for="message">Message (optionnel)</label>
+      <textarea id="message" placeholder="Précisions sur votre commande..."></textarea>
     </div>
-  </section>
 
-  <!-- ===== ENGAGEMENTS ===== -->
-  <section class="engagements">
-    <div class="wrap engagement-grid">
-      <div class="engagement">
-        <span class="engagement-icon">✓</span>
-        <span>Produits de qualité</span>
-      </div>
-      <div class="engagement">
-        <span class="engagement-icon">✓</span>
-        <span>Service de confiance</span>
-      </div>
-      <div class="engagement">
-        <span class="engagement-icon">✓</span>
-        <span>Livraison rapide</span>
-      </div>
-      <div class="engagement">
-        <span class="engagement-icon">✓</span>
-        <span>Votre satisfaction avant tout</span>
-      </div>
-    </div>
-  </section>
+    <button type="submit">Envoyer la commande sur WhatsApp</button>
+    <p class="status" id="status"></p>
+  </form>
+</main>
 
-  <!-- ===== CONTACT / COMMANDE ===== -->
-  <section class="contact" id="contact">
-    <div class="wrap contact-inner">
-      <h2>Passer commande</h2>
-      <p class="section-sub">Dites-moi ce qu'il vous faut, je réponds vite.</p>
+<footer>F Tech Design — Qualité avant tout</footer>
 
-      <form class="order-form" id="orderForm">
-        <div class="form-row">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" required placeholder="Votre nom">
-        </div>
-        <div class="form-row">
-          <label for="tel">Téléphone</label>
-          <input type="tel" id="tel" name="tel" required placeholder="Votre numéro">
-        </div>
-        <div class="form-row">
-          <label for="produit">Produit souhaité</label>
-          <select id="produit" name="produit">
-            <option value="Boîtier PC">Boîtier PC — 5000 FCFA</option>
-            <option value="Clé USB 8Go">Clé USB 8 Go</option>
-            <option value="Clé USB 16Go">Clé USB 16 Go</option>
-            <option value="Clé USB 32Go">Clé USB 32 Go</option>
-            <option value="Clé USB 64Go">Clé USB 64 Go</option>
-            <option value="Clé USB 128Go">Clé USB 128 Go</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="adresse">Adresse de livraison</label>
-          <input type="text" id="adresse" name="adresse" placeholder="Quartier, ville">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Envoyer la commande sur WhatsApp</button>
-        <p class="form-note" id="formNote"></p>
-      </form>
-    </div>
-  </section>
+<script>
+  // Numéro WhatsApp pro, format international sans + ni espaces
+  const WHATSAPP_NUMBER = "2290168482193";
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <div class="brand">
-        <span class="brand-mark">F</span>
-        <span class="brand-name">TECH DESIGN</span>
-      </div>
-      <p>&copy; <span id="year"></span> F Tech Design. Qualité avant tout.</p>
-    </div>
-  </footer>
+  const form = document.getElementById('orderForm');
+  const statusEl = document.getElementById('status');
 
-  <script src="script.js"></script>
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.textContent = '';
+
+    const nom = document.getElementById('nom').value.trim();
+    const tel = document.getElementById('tel').value.trim();
+    const produit = document.getElementById('produit').value;
+    const adresse = document.getElementById('adresse').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    let valid = true;
+
+    const nomField = document.getElementById('field-nom');
+    const telField = document.getElementById('field-tel');
+
+    if(!nom){
+      nomField.classList.add('invalid');
+      valid = false;
+    } else {
+      nomField.classList.remove('invalid');
+    }
+
+    if(!tel){
+      telField.classList.add('invalid');
+      valid = false;
+    } else {
+      telField.classList.remove('invalid');
+    }
+
+    if(!valid){
+      statusEl.textContent = "Merci de compléter les champs obligatoires.";
+      return;
+    }
+
+    let texte = "Bonjour, je souhaite passer une commande :\n\n";
+    texte += "Nom : " + nom + "\n";
+    texte += "Téléphone : " + tel + "\n";
+    texte += "Produit souhaité : " + produit + "\n";
+    if(adresse) texte += "Adresse de livraison : " + adresse + "\n";
+    if(message) texte += "Message : " + message + "\n";
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(texte);
+
+    statusEl.textContent = "Redirection vers WhatsApp...";
+
+    // window.location fonctionne mieux que window.open sur mobile (évite les bloqueurs de pop-up)
+    window.location.href = url;
+  });
+</script>
+
 </body>
-        </html>
-        
+</html>
